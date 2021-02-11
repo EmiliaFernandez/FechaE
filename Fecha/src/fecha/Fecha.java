@@ -9,27 +9,42 @@ package fecha;
  */
 public class Fecha {
 	
+		
+		public int dia;
+		public int mes;
+		public int año;
 
-		public int d;
-		public int m;
-		public int a;
+		public Fecha(int dia, int m, int a) {
+			this.dia = dia;
+			this.mes = m;
+			this.año = a;
+		}
+		
+		{
 
-		public Fecha(int d, int m, int a) {
-			this.d = d;
-			this.m = m;
-			this.a = a;
+			validarFecha();
+
 		}
 
-		public boolean valida() {
+		/**
+		 * @deprecated Use {@link #validarFecha()} instead
+		 * 
+		 */
+		public void validar() {
+			validarFecha();
+		}
 
-			if (d < 1 || d > 31)
-				return false;
-			if (m < 1 || m > 12)
-				return false;
-
+		/**
+		 * 
+		 */
+		public void validarFecha() {
+			if (dia < 1 || dia > 31)
+				System.out. println ("Fecha incorrecta");
+			if (mes < 1 || mes > 12)
+				System.out. println ("Fecha incorrecta");
 			// Determinamos la cantidad de días del mes:
 			int diasMes = 0;
-			switch (m) {
+			switch (mes) {
 				case 1:
 				case 3:
 				case 5:
@@ -46,19 +61,27 @@ public class Fecha {
 					diasMes = 30;
 					break;
 				case 2: // Verificamos si el año es bisiesto
-					if ((a % 400 == 0) || ((a % 4 == 0) && (a % 100 != 0)))
-						diasMes = 29;
-					else
-						diasMes = 28;
+				diasMes = bisisesto();
 					break;
 
 			}
 
-			if (d > diasMes)
-				return false;
+			if (dia > diasMes)
+				System.out. println ("Fecha incorrecta");
 			else
-				return true;
+				System.out. println ("Fecha incorrecta");
+		}
 
+		/**
+		 * @return
+		 */
+		public int bisisesto() {
+			int diasMes;
+			if ((año % 400 == 0) || ((año % 4 == 0) && (año % 100 != 0)))
+				diasMes = 29;
+			else
+				diasMes = 28;
+			return diasMes;
 		}
 
 	}

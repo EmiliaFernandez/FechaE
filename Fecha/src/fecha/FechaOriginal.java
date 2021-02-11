@@ -20,12 +20,12 @@ public class FechaOriginal {
 			this.a = a;
 		}
 
-		public boolean valida() {
+		{
 
 			if (d < 1 || d > 31)
-				return false;
+				System.out. println ("Fecha incorrecta");
 			if (m < 1 || m > 12)
-				return false;
+				System.out. println ("Fecha incorrecta");
 
 			// Determinamos la cantidad de días del mes:
 			int diasMes = 0;
@@ -55,9 +55,9 @@ public class FechaOriginal {
 			}
 
 			if (d > diasMes)
-				return false;
+				System.out. println ("Fecha incorrecta");
 			else
-				return true;
+				System.out. println ("Fecha incorrecta");
 
 		}
 
